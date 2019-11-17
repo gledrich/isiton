@@ -12,19 +12,12 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    /* justify-content: center; */
     align-items: center;
     height: 25rem;
     width: 25rem;
-    background-color: #FFECE2;
     justify-content: space-around;
     text-align: center;
 }
-
-/* .searchItem>* {
-    padding: 10px;
-    flex: 1 100%;
-} */
 
 .searchBox {
     order: 1;
