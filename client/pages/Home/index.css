@@ -1,0 +1,49 @@
+.homeContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+    width: 100%;
+}
+
+.searchItem {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    align-items: center;
+    height: 25rem;
+    width: 25rem;
+    background-color: #FFECE2;
+    justify-content: space-around;
+    text-align: center;
+}
+
+/* .searchItem>* {
+    padding: 10px;
+    flex: 1 100%;
+} */
+
+.searchBox {
+    order: 1;
+    flex: 1 5%;
+    /* width: 5rem; */
+}
+
+.searchIcon {
+    /* margin-bottom: 1rem; */
+}
+
+.searchIconContainer {
+    order: 2;
+    flex: 1 100%;
+    /* margin-top: .4rem;margin-left: .4rem; */
+}
+
+.titleContainer {
+    order: 0;
+    flex: 1 100%;
+    /* background-color: green; */
+}
