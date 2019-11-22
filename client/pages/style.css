@@ -3,6 +3,9 @@ body {
 }
 
 .example {
+  height: 98vh;
   font-family: "Roboto";
   font-size: x-large;
+  display: flex;
+  flex-wrap: wrap;
 }

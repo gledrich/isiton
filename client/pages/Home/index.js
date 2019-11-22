@@ -1,30 +1,49 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import {
-  TextField, Paper, Typography,
+  TextField, Paper,
 } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
+import PageviewIcon from '@material-ui/icons/Pageview';
+
+import '../animation.css';
 import styles from './styles';
 
-import './index.css';
-
-
 const Home = ({ classes }) => {
-  const [value, setSearchValue] = useState('Controlled');
+  const [value, setSearchValue] = useState(null);
 
   const handleChange = (event) => {
     setSearchValue(event.target.value);
   };
 
-  return (
+  const searchBoxStyle = value === 'show' ? {
+    alignItems: 'center',
+    minHeight: '10rem',
+  } : { alignItems: 'flex-end' };
 
-    <div className="homeContainer">
-      <Paper classes={{ root: classes.paper }} elevation={12}>
-        <div className="titleContainer">
-          <Typography component="h1">...</Typography>
-        </div>
-        <div className="searchBox">
+  // const paperStyle = value ? {
+  //   // height: '5rem',
+  //   animationName: 'shrink',
+  //   animationDuration: '1s',
+  // } : {
+  //     // height: '25rem',
+  //     animationName: 'grow',
+  //     animationDuration: '1s',
+  //   };
+
+  return (
+    <div className={classes.homeContainer}>
+      <Paper
+        className="paper"
+        classes={{ root: classes.paper }}
+        elevation={12}
+      >
+        <div
+          className={classes.searchBox}
+          style={searchBoxStyle}
+        >
           <TextField
+            autoFocus
             InputProps={{
               classes: {
                 input: classes.input,
@@ -37,14 +56,14 @@ const Home = ({ classes }) => {
                 focused: classes.inputLabelFocused,
               },
             }}
-            label="search movies..."
+            label="Search Movies..."
             onChange={handleChange}
-          >
-            Search
-
-          </TextField>
+          />
+          <PageviewIcon classes={{ root: classes.icon }} fontSize="large" />
         </div>
-        <div className="searchIconContainer">
+        <div className={classes.searchIconContainer}>
+          {/* <MovieCard /> */}
+          {/* {value === 'show' ? <MovieCard /> : null} */}
           {/* <PageviewIcon className="searchIcon" fontSize="large" /> */}
         </div>
       </Paper>
