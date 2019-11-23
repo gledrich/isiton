@@ -1,37 +1,64 @@
-import PropTypes from 'prop-types';
-import {
-  Card, CardHeader, CardContent, CardMedia, Avatar,
-} from '@material-ui/core';
+import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import { Chip } from '@material-ui/core';
+import DoneIcon from '@material-ui/icons/Done';
+import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
+import CancelOutlineIcon from '@material-ui/icons/CancelOutlined';
 import styles from './styles';
 
-const MovieCard = ({ classes }) => (
-  <div className={classes.cardContainer}>
-    <Card classes={{ root: classes.card }}>
-      <CardHeader
-        classes={{ root: classes.cardHeader }}
-        avatar={(
-          <Avatar aria-label="recipe" className={classes.avatar}>
-            N
-          </Avatar>
-        )}
-        title="Movie"
-        subheader="2019"
-      />
-      <CardMedia
-        className={classes.cardMedia}
-        image="/images/spider_man.jpg"
-        title="Paella dish"
-      />
-      <CardContent classes={{ root: classes.cardContent }}>
-        Content
-      </CardContent>
-    </Card>
-  </div>
-);
+const MovieCard = ({ classes }) => {
+  const available = true;
 
-MovieCard.propTypes = {
-  classes: PropTypes.object.isRequired,
+  const backgroundColors = {
+    available: '#00C964',
+    unavailable: '#FF6F3F',
+  };
+
+  return (
+    <div className={classes.movieListContainer}>
+      <Chip
+        className={classes.chip}
+        icon={<CheckCircleOutlineIcon className={classes.iconAvailable} />}
+        label={<img src="/images/netflix.png" style={{ width: '5rem' }} />}
+        style={{
+          backgroundColor:
+           available ? backgroundColors.available
+             : backgroundColors.unavailable,
+        }}
+        clickable
+        size="medium"
+        color="primary"
+        deleteIcon={<DoneIcon />}
+      />
+      <Chip
+        className={classes.chip}
+        icon={<CancelOutlineIcon fontSize="large" className={classes.iconNotAvailable} />}
+        label={<img src="/images/sky.png" style={{ width: '5rem' }} />}
+        style={{
+          backgroundColor:
+          available ? backgroundColors.unavailable
+            : backgroundColors.unavailable,
+        }}
+        clickable
+        size="medium"
+        color="primary"
+        deleteIcon={<DoneIcon />}
+      />
+      <Chip
+        className={classes.chip}
+        icon={<CheckCircleOutlineIcon className={classes.iconAvailable} />}
+        label={<img src="/images/amazon.png" style={{ width: '5rem' }} />}
+        style={{
+          backgroundColor:
+           available ? backgroundColors.available
+             : backgroundColors.unavailable,
+        }}
+        clickable
+        size="medium"
+        color="primary"
+      />
+    </div>
+  );
 };
 
 export default withStyles(styles)(MovieCard);
